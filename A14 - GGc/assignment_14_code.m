@@ -16,7 +16,7 @@ fprintf("M/G/1 \n");
 fprintf("Utilization: %g \n", rho_MG1);
 fprintf("Average Response time: %g \n", R_MG1);
 fprintf("Average number of jobs: %g \n", N_MG1);
-% Two parallel servers
+% G/G/2
 % Initializing parameters
 l=4000;
 k=4;
