@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<archive xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="assignment_18_sim.jsimg" timestamp="Tue Dec 13 22:44:24 CET 2022" xsi:noNamespaceSchemaLocation="Archive.xsd">
+    <sim disableStatisticStop="false" logDecimalSeparator="," logDelimiter=";" logPath="C:\Users\giova\JMT" logReplaceMode="0" maxEvents="-1" maxSamples="1000000" name="assignment_18_sim.jsimg" polling="1.0" xsi:noNamespaceSchemaLocation="SIMmodeldefinition.xsd">
+        <userClass name="Class1" priority="0" referenceSource="Source 1" type="open"/>
+        <node name="Source 1">
+            <section className="RandomSource">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="ServiceStrategy">
+                    <refClass>Class1</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+                        <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+                        <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="lambda">
+                                <value>0.16666666666666666</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+            </section>
+            <section className="ServiceTunnel"/>
+            <section className="Router">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.RoutingStrategy" name="RoutingStrategy">
+                    <refClass>Class1</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.RandomStrategy" name="Random"/>
+                </parameter>
+            </section>
+        </node>
+        <node name="Processing">
+            <section className="Queue">
+                <parameter classPath="java.lang.Integer" name="size">
+                    <value>5</value>
+                </parameter>
+                <parameter array="true" classPath="java.lang.String" name="dropStrategies">
+                    <refClass>Class1</refClass>
+                    <subParameter classPath="java.lang.String" name="dropStrategy">
+                        <value>drop</value>
+                    </subParameter>
+                </parameter>
+                <parameter classPath="jmt.engine.NetStrategies.QueueGetStrategies.FCFSstrategy" name="FCFSstrategy"/>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.QueuePutStrategy" name="QueuePutStrategy">
+                    <refClass>Class1</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+                </parameter>
+            </section>
+            <section className="Server">
+                <parameter classPath="java.lang.Integer" name="maxJobs">
+                    <value>1</value>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Integer" name="numberOfVisits">
+                    <refClass>Class1</refClass>
+                    <subParameter classPath="java.lang.Integer" name="numberOfVisits">
+                        <value>1</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="ServiceStrategy">
+                    <refClass>Class1</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+                        <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+                        <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="lambda">
+                                <value>0.5</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+            </section>
+            <section className="Router">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.RoutingStrategy" name="RoutingStrategy">
+                    <refClass>Class1</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.RandomStrategy" name="Random"/>
+                </parameter>
+            </section>
+        </node>
+        <node name="Channel 1">
+            <section className="Queue">
+                <parameter classPath="java.lang.Integer" name="size">
+                    <value>-1</value>
+                </parameter>
+                <parameter array="true" classPath="java.lang.String" name="dropStrategies">
+                    <refClass>Class1</refClass>
+                    <subParameter classPath="java.lang.String" name="dropStrategy">
+                        <value>drop</value>
+                    </subParameter>
+                </parameter>
+                <parameter classPath="jmt.engine.NetStrategies.QueueGetStrategies.FCFSstrategy" name="FCFSstrategy"/>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.QueuePutStrategy" name="QueuePutStrategy">
+                    <refClass>Class1</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+                </parameter>
+            </section>
+            <section className="Server">
+                <parameter classPath="java.lang.Integer" name="maxJobs">
+                    <value>1</value>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Integer" name="numberOfVisits">
+                    <refClass>Class1</refClass>
+                    <subParameter classPath="java.lang.Integer" name="numberOfVisits">
+                        <value>1</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="ServiceStrategy">
+                    <refClass>Class1</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+                        <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+                        <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="lambda">
+                                <value>0.16666666666666666</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+            </section>
+            <section className="Router">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.RoutingStrategy" name="RoutingStrategy">
+                    <refClass>Class1</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.RandomStrategy" name="Random"/>
+                </parameter>
+            </section>
+        </node>
+        <node name="Channel 2">
+            <section className="Queue">
+                <parameter classPath="java.lang.Integer" name="size">
+                    <value>-1</value>
+                </parameter>
+                <parameter array="true" classPath="java.lang.String" name="dropStrategies">
+                    <refClass>Class1</refClass>
+                    <subParameter classPath="java.lang.String" name="dropStrategy">
+                        <value>drop</value>
+                    </subParameter>
+                </parameter>
+                <parameter classPath="jmt.engine.NetStrategies.QueueGetStrategies.FCFSstrategy" name="FCFSstrategy"/>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.QueuePutStrategy" name="QueuePutStrategy">
+                    <refClass>Class1</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+                </parameter>
+            </section>
+            <section className="Server">
+                <parameter classPath="java.lang.Integer" name="maxJobs">
+                    <value>1</value>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Integer" name="numberOfVisits">
+                    <refClass>Class1</refClass>
+                    <subParameter classPath="java.lang.Integer" name="numberOfVisits">
+                        <value>1</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="ServiceStrategy">
+                    <refClass>Class1</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+                        <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+                        <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="lambda">
+                                <value>0.18181818181818182</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+            </section>
+            <section className="Router">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.RoutingStrategy" name="RoutingStrategy">
+                    <refClass>Class1</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.RandomStrategy" name="Random"/>
+                </parameter>
+            </section>
+        </node>
+        <node name="Sink 1">
+            <section className="JobSink"/>
+        </node>
+        <node name="Sink 2">
+            <section className="JobSink"/>
+        </node>
+        <node name="Preparing">
+            <section className="Queue">
+                <parameter classPath="java.lang.Integer" name="size">
+                    <value>10</value>
+                </parameter>
+                <parameter array="true" classPath="java.lang.String" name="dropStrategies">
+                    <refClass>Class1</refClass>
+                    <subParameter classPath="java.lang.String" name="dropStrategy">
+                        <value>BAS blocking</value>
+                    </subParameter>
+                </parameter>
+                <parameter classPath="jmt.engine.NetStrategies.QueueGetStrategies.FCFSstrategy" name="FCFSstrategy"/>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.QueuePutStrategy" name="QueuePutStrategy">
+                    <refClass>Class1</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.HeadStrategy" name="HeadStrategy"/>
+                </parameter>
+            </section>
+            <section className="Server">
+                <parameter classPath="java.lang.Integer" name="maxJobs">
+                    <value>1</value>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Integer" name="numberOfVisits">
+                    <refClass>Class1</refClass>
+                    <subParameter classPath="java.lang.Integer" name="numberOfVisits">
+                        <value>1</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="ServiceStrategy">
+                    <refClass>Class1</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+                        <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+                        <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="lambda">
+                                <value>0.2857142857142857</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+            </section>
+            <section className="Router">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.RoutingStrategy" name="RoutingStrategy">
+                    <refClass>Class1</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.RoundRobinStrategy" name="Round Robin"/>
+                </parameter>
+            </section>
+        </node>
+        <measure alpha="0.01" name="System Throughput" nodeType="" precision="0.03" referenceNode="" referenceUserClass="" type="System Throughput" verbose="false"/>
+        <measure alpha="0.01" name="Processing_Drop Rate" nodeType="station" precision="0.03" referenceNode="Processing" referenceUserClass="" type="Drop Rate" verbose="false"/>
+        <measure alpha="0.01" name="System Response Time" nodeType="" precision="0.03" referenceNode="" referenceUserClass="" type="System Response Time" verbose="false"/>
+        <measure alpha="0.01" name="Processing_Response Time" nodeType="station" precision="0.03" referenceNode="Processing" referenceUserClass="" type="Response Time" verbose="false"/>
+        <measure alpha="0.01" name="Preparing_Response Time" nodeType="station" precision="0.03" referenceNode="Preparing" referenceUserClass="" type="Response Time" verbose="false"/>
+        <measure alpha="0.01" name="Channel 1_Response Time" nodeType="station" precision="0.03" referenceNode="Channel 1" referenceUserClass="" type="Response Time" verbose="false"/>
+        <measure alpha="0.01" name="Channel 2_Response Time" nodeType="station" precision="0.03" referenceNode="Channel 2" referenceUserClass="" type="Response Time" verbose="false"/>
+        <connection source="Source 1" target="Processing"/>
+        <connection source="Processing" target="Preparing"/>
+        <connection source="Channel 1" target="Sink 1"/>
+        <connection source="Channel 2" target="Sink 2"/>
+        <connection source="Preparing" target="Channel 1"/>
+        <connection source="Preparing" target="Channel 2"/>
+    </sim>
+    <jmodel xsi:noNamespaceSchemaLocation="JModelGUI.xsd">
+        <userClass color="#FF0000FF" name="Class1"/>
+        <station name="Source 1">
+            <position angle="0.0" rotate="false" x="36.0" y="104.0"/>
+        </station>
+        <station name="Processing">
+            <position angle="0.0" rotate="false" x="143.0" y="101.0"/>
+        </station>
+        <station name="Channel 1">
+            <position angle="0.0" rotate="false" x="500.0" y="41.0"/>
+        </station>
+        <station name="Channel 2">
+            <position angle="0.0" rotate="false" x="500.0" y="161.0"/>
+        </station>
+        <station name="Sink 1">
+            <position angle="0.0" rotate="false" x="675.0" y="44.0"/>
+        </station>
+        <station name="Sink 2">
+            <position angle="0.0" rotate="false" x="675.0" y="164.0"/>
+        </station>
+        <station name="Preparing">
+            <position angle="0.0" rotate="false" x="280.0" y="101.0"/>
+        </station>
+        <parametric classPath="jmt.gui.common.definitions.parametric.ArrivalRateParametricAnalysis" enabled="true">
+            <field name="Class" value="Class1"/>
+            <field name="Is single class" value="true"/>
+            <field name="Steps" value="9"/>
+            <field name="To" value="0.3333333333333333"/>
+            <field name="Type" value="Arrival rates"/>
+        </parametric>
+    </jmodel>
+    <results elapsedTime="0" logDecimalSeparator="," logDelimiter=";" pollingInterval="0.0" xsi:noNamespaceSchemaLocation="Results.xsd">
+        <measure alpha="0.99" analyzedSamples="9" name="Network_All classes_System Throughput" nodeType="" precision="0.03" referenceClass="All classes" referenceStation="Network" type="16">
+            <sample lowerBound="0.1617032267516286" meanValue="0.16496450566570856" upperBound="0.16836004119933382" validity="true"/>
+            <sample lowerBound="0.18130917540599636" meanValue="0.18576605638937324" upperBound="0.19044757441424104" validity="true"/>
+            <sample lowerBound="0.20289354592645267" meanValue="0.20704829526367177" upperBound="0.21137675947037154" validity="true"/>
+            <sample lowerBound="0.22056222062865108" meanValue="0.2241514720416116" upperBound="0.2278594730458416" validity="true"/>
+            <sample lowerBound="0.23941551482409615" meanValue="0.2425793371362126" upperBound="0.24582789764864596" validity="true"/>
+            <sample lowerBound="0.25012582063706806" meanValue="0.2548848954258742" upperBound="0.25982858197017444" validity="true"/>
+            <sample lowerBound="0.2598297559033276" meanValue="0.26441989970510227" upperBound="0.26917513872816723" validity="true"/>
+            <sample lowerBound="0.2676051539223515" meanValue="0.27241269499435783" upperBound="0.2773961315085514" validity="true"/>
+            <sample lowerBound="0.2727961428873387" meanValue="0.27773417089791436" upperBound="0.28285426634851835" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="9" name="Processing_All classes_Drop Rate" nodeType="station" precision="0.03" referenceClass="All classes" referenceStation="Processing" type="8">
+            <sample lowerBound="4.6563646377758005E-4" meanValue="4.7548853393851795E-4" upperBound="4.857665216508922E-4" validity="true"/>
+            <sample lowerBound="9.633441952194705E-4" meanValue="9.866516125531099E-4" upperBound="0.0010111148053107413" validity="true"/>
+            <sample lowerBound="0.001953259474114103" meanValue="0.002001063912744575" upperBound="0.0020512670060902917" validity="true"/>
+            <sample lowerBound="0.003974357778042621" meanValue="0.00407491538388231" upperBound="0.004180693616312275" validity="true"/>
+            <sample lowerBound="0.007855819186143921" meanValue="0.008037586347000992" upperBound="0.008227964161175804" validity="true"/>
+            <sample lowerBound="0.014497020230915708" meanValue="0.014839011857451762" upperBound="0.015197528815852507" validity="true"/>
+            <sample lowerBound="0.024959922087602445" meanValue="0.025446179229859" upperBound="0.025951758856829106" validity="true"/>
+            <sample lowerBound="0.03779038773534388" meanValue="0.038501176982498955" upperBound="0.03923921686744248" validity="true"/>
+            <sample lowerBound="0.05439752757014631" meanValue="0.05531827480906489" upperBound="0.0562707283501477" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="9" name="Network_All classes_System Response Time" nodeType="" precision="0.03" referenceClass="All classes" referenceStation="Network" type="15">
+            <sample lowerBound="19.76437126689958" meanValue="20.345991693609353" upperBound="20.927612120319125" validity="true"/>
+            <sample lowerBound="22.60571123867503" meanValue="23.014225866501402" upperBound="23.422740494327773" validity="true"/>
+            <sample lowerBound="26.007068550792056" meanValue="26.555864042972438" upperBound="27.10465953515282" validity="true"/>
+            <sample lowerBound="30.138090549819946" meanValue="31.040382995711827" upperBound="31.942675441603708" validity="true"/>
+            <sample lowerBound="35.48949883122052" meanValue="36.380319695356334" upperBound="37.271140559492146" validity="true"/>
+            <sample lowerBound="41.73904377527758" meanValue="42.93219263704121" upperBound="44.12534149880484" validity="true"/>
+            <sample lowerBound="47.23672577140239" meanValue="48.427846660000434" upperBound="49.61896754859848" validity="true"/>
+            <sample lowerBound="52.66588480120519" meanValue="54.22933265619306" upperBound="55.79278051118093" validity="true"/>
+            <sample lowerBound="57.113910716049226" meanValue="58.30448483524727" upperBound="59.49505895444532" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="9" name="Processing_All classes_Response Time" nodeType="station" precision="0.03" referenceClass="All classes" referenceStation="Processing" type="2">
+            <sample lowerBound="2.886220085907127" meanValue="2.9599004921200187" upperBound="3.0335808983329104" validity="true"/>
+            <sample lowerBound="3.1383938231889537" meanValue="3.211907163803454" upperBound="3.2854205044179543" validity="true"/>
+            <sample lowerBound="3.3732078034390165" meanValue="3.47538690014271" upperBound="3.5775659968464035" validity="true"/>
+            <sample lowerBound="3.761257023426181" meanValue="3.849801651273302" upperBound="3.9383462791204233" validity="true"/>
+            <sample lowerBound="4.4503536246023305" meanValue="4.556018356714959" upperBound="4.661683088827587" validity="true"/>
+            <sample lowerBound="5.238726864582459" meanValue="5.381624025704816" upperBound="5.524521186827172" validity="true"/>
+            <sample lowerBound="6.276759309011768" meanValue="6.465184087465894" upperBound="6.653608865920019" validity="true"/>
+            <sample lowerBound="7.224120893068477" meanValue="7.417582811079423" upperBound="7.611044729090368" validity="true"/>
+            <sample lowerBound="8.22680488839435" meanValue="8.428754552862529" upperBound="8.630704217330708" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="9" name="Preparing_All classes_Response Time" nodeType="station" precision="0.03" referenceClass="All classes" referenceStation="Preparing" type="2">
+            <sample lowerBound="8.070375608623044" meanValue="8.297701075473725" upperBound="8.525026542324406" validity="true"/>
+            <sample lowerBound="9.694738743390676" meanValue="9.95056477301765" upperBound="10.206390802644624" validity="true"/>
+            <sample lowerBound="11.35737157830145" meanValue="11.680925033747474" upperBound="12.004478489193499" validity="true"/>
+            <sample lowerBound="13.953180610720622" meanValue="14.254138403175627" upperBound="14.555096195630632" validity="true"/>
+            <sample lowerBound="16.929904539883477" meanValue="17.380566227893976" upperBound="17.831227915904474" validity="true"/>
+            <sample lowerBound="20.064358046581393" meanValue="20.678904237959586" upperBound="21.293450429337778" validity="true"/>
+            <sample lowerBound="23.371342543540436" meanValue="24.08564901009012" upperBound="24.799955476639802" validity="true"/>
+            <sample lowerBound="25.48745873673927" meanValue="26.091034518614446" upperBound="26.69461030048962" validity="true"/>
+            <sample lowerBound="27.458097197784276" meanValue="27.99462595987155" upperBound="28.53115472195882" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="9" name="Channel 1_All classes_Response Time" nodeType="station" precision="0.03" referenceClass="All classes" referenceStation="Channel 1" type="2">
+            <sample lowerBound="9.513273440316599" meanValue="9.761921823426139" upperBound="10.010570206535679" validity="true"/>
+            <sample lowerBound="10.426684033305804" meanValue="10.734914944042144" upperBound="11.043145854778484" validity="true"/>
+            <sample lowerBound="12.187768303911124" meanValue="12.447199217056646" upperBound="12.706630130202168" validity="true"/>
+            <sample lowerBound="13.858836896737042" meanValue="14.175278899044" upperBound="14.49172090135096" validity="true"/>
+            <sample lowerBound="15.830908982374563" meanValue="16.28075811066475" upperBound="16.730607238954935" validity="true"/>
+            <sample lowerBound="18.249796259811557" meanValue="18.767335529757823" upperBound="19.284874799704088" validity="true"/>
+            <sample lowerBound="21.28705545384093" meanValue="21.917044466859664" upperBound="22.547033479878397" validity="true"/>
+            <sample lowerBound="23.6424351136726" meanValue="24.323172605314547" upperBound="25.003910096956492" validity="true"/>
+            <sample lowerBound="26.030678551881802" meanValue="26.738680520263177" upperBound="27.44668248864455" validity="true"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="9" name="Channel 2_All classes_Response Time" nodeType="station" precision="0.03" referenceClass="All classes" referenceStation="Channel 2" type="2">
+            <sample lowerBound="8.043925703192748" meanValue="8.268160452004013" upperBound="8.492395200815277" validity="true"/>
+            <sample lowerBound="8.703976836622878" meanValue="8.942647177395516" upperBound="9.181317518168154" validity="true"/>
+            <sample lowerBound="9.942465367768783" meanValue="10.152579632471495" upperBound="10.362693897174207" validity="true"/>
+            <sample lowerBound="10.983954113296166" meanValue="11.246922282537179" upperBound="11.509890451778192" validity="true"/>
+            <sample lowerBound="12.433253972579372" meanValue="12.720868495927311" upperBound="13.00848301927525" validity="true"/>
+            <sample lowerBound="13.655839065078819" meanValue="13.97566515207585" upperBound="14.29549123907288" validity="true"/>
+            <sample lowerBound="14.78834146741595" meanValue="15.132058964387683" upperBound="15.475776461359416" validity="true"/>
+            <sample lowerBound="16.03562804800345" meanValue="16.49461964192575" upperBound="16.953611235848047" validity="true"/>
+            <sample lowerBound="17.099570513125236" meanValue="17.54692915163326" upperBound="17.994287790141286" validity="true"/>
+        </measure>
+    </results>
+</archive>
