@@ -38,16 +38,12 @@ k_erlang = round(1/(cV^2));
 lambda_erl = k_erlang/M1;
 fprintf("Erlang k: %d \n", k_erlang);
 fprintf("Lambda Erlang: %d \n", lambda_erl);
-% Gamma
-gamma_shape=1/(cV^2); %a
-gamma_scale=M1/gamma_shape; %b
 % Plotting
 t = [0:5300];
 y2unif_MM=max(0, min(1, (t-a_unif)/(b_unif-a_unif)));
 y2exp_MM = 1 - exp(-lambda_exp*t);
 syms n;
 y2_erlang_MM = 1 - symsum((1/factorial(n)).*exp(-lambda_erl*t).*((lambda_erl.*t).^n) ,n, 0, k_erlang-1);
-y2_gam = gamcdf(t, gamma_shape, gamma_scale);
 if cV >=1
     y2Hyperexp_MM = 1 -result_hyperExp_MM(1,3)*exp(-result_hyperExp_MM(1,1)*t) ...
         -(1-result_hyperExp_MM(1,3))*exp(-result_hyperExp_MM(1,2)*t);
